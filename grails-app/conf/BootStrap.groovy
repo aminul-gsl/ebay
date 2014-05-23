@@ -19,7 +19,7 @@ class BootStrap {
 
         User superAdminUser = User.findByUsername('admin')
         if(!superAdminUser){
-            superAdminUser = new User(username: 'admin',firstName: 'Super',lastName: 'Admin',email: 'admin@gmail.com',telephone: '01930270050',lastLogin: new Date(), password: 'password', enabled: true, accountExpired: false, accountLocked: false, passwordExpired: false)
+            superAdminUser = new User(username: 'admin',firstName: 'Super',lastName: 'Admin',email: 'admin@gmail.com',telephone: '01930270050',lastLogin: new Date(), password: '123', enabled: true, accountExpired: false, accountLocked: false, passwordExpired: false)
             superAdminUser.save(flush: true)
 
             new UserRole(user: superAdminUser, role: superAdmin).save(flush: true)
