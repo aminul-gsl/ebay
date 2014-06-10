@@ -47,10 +47,6 @@
 </head>
 
 <body>
-<g:layoutBody/>
-<!-- BEGIN Costumize -->
-
-<!-- END Costumize -->
 <div class="outter">
 <!-- BEGIN TOP BLOCK -->
 <section class="top-block">
@@ -144,69 +140,10 @@
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav">
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">HOME <b class="caret"></b></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="index.html">Home Default</a>
-                                        </li>
-                                        <li><a href="index-business.html">Home Business Version</a>
-                                        </li>
-                                        <li><a href="index-business-full-width-slider.html">Home Business Alternative</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li><a href="about.html">ABOUT</a>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">PAGES <b class="caret"></b></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="404.html">404 Error page</a>
-                                        </li>
-                                        <li><a href="about.html">About</a>
-                                        </li>
-                                        <li><a href="cart.html">Cart</a>
-                                        </li>
-                                        <li><a href="checkout.html">Checkout</a>
-                                        </li>
-                                        <li><a href="coming-soon.html">Coming Soon</a>
-                                        </li>
-                                        <li><a href="contact.html">Contact</a>
-                                        </li>
-                                        <li><a href="login.html">Login</a>
-                                        </li>
-                                        <li><a href="pricing-tables.html">Pricing Tables</a>
-                                        </li>
-                                        <li><a href="shop.html">Shop</a>
-                                        </li>
-                                        <li><a href="services.html">Services</a>
-                                        </li>
-                                        <li><a href="shortcodes.html">Shortcode</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">SHOP <b class="caret"></b></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="shop.html">Product List</a>
-                                        </li>
-                                        <li><a href="product-detail.html">Product Detail</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="blog.html">Blog Page</a>
-                                        </li>
-                                        <li><a href="blog-post.html">Blog Post Sidebar</a>
-                                        </li>
-                                        <li><a href="full-width.html">Blog Post Full Width</a>
-                                        </li>
-                                    </ul>
-                                </li>
-
-                                <li><a href="shortcodes.html">SHORTCODE</a>
-                                </li>
+                                <li><a href="#">HOME</a></li>
+                                <li><a href="about.html">ABOUT</a></li>
+                                <li><a href="#">PRODUCT</a></li>
+                                <li><a href="#">BLOG</a></li>
                                 <li><a href="contact.html">CONTACT</a>
                                 </li>
                             </ul>
@@ -220,7 +157,7 @@
     </div>
 </section>
 <!-- END NAVIGATION -->
-
+<g:layoutBody/>
 <!-- END BRAND -->
 <footer>
     <!-- WIDGET ABOUT -->

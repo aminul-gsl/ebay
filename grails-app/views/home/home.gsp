@@ -129,7 +129,7 @@
     <div class="col-md-12">
         <div class="product-block">
             <div class="product-image">
-                <a href="javascript:;">
+                <a href="${g.createLink(controller: 'product',action: 'detail',params: [id:2])}">
                     <figure class="product-display">
                         <span class="product-label-special label">
                             <i>Sale</i>
