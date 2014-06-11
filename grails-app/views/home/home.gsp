@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta name="layout" content="ebay"/>
-    <title>Welcome to Grails</title>
+    <title>Welcome to Ebay</title>
 
 </head>
 <body>

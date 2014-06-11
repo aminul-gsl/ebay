@@ -1,13 +1,7 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
-<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
-<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
-<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"><!--<![endif]-->
+<html lang="en">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Tumbas Multipurpose Business Theme">
@@ -20,7 +14,7 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'bootstrap.min.css')}" type="text/css">
     <!-- Font Awesome CSS -->
-    <link rel="stylesheet" href="${resource(dir: 'css/lib', file: 'font-awesome.css')}" type="text/css">
+    <link rel="stylesheet" href="${resource(dir: 'font-awesome/css', file: 'font-awesome.min.css')}" type="text/css">
     <!-- Zocial CSS -->
     <link rel="stylesheet" href="${resource(dir: 'css/lib', file: 'zocial.css')}" type="text/css">
     <!-- Animated CSS-->
@@ -28,6 +22,8 @@
     <!-- OWL CSS-->
     <link rel="stylesheet" href="${resource(dir: 'css/lib', file: 'owl.carousel.css')}" type="text/css">
     <link rel="stylesheet" href="${resource(dir: 'css/lib', file: 'owl.theme.css')}" type="text/css">
+    <!-- Smoothproducts CSS -->
+    <link rel="stylesheet" href="${resource(dir: 'css/lib', file: 'smoothproducts.css')}" type="text/css">
     <!-- Costumize Font CSS -->
     <link rel="stylesheet" href="${resource(dir: 'css/lib', file: 'costumizefont.css')}" type="text/css">
     <!-- STYLE CSS -->
@@ -87,8 +83,8 @@
             <div class="col-sm-6">
                 <div class="sitelogo-block">
                     <div class="logo">
-                        <a href="javascript:;">
-                            <img src="images/logo.png" alt="">
+                        <a href="${g.createLink(controller: 'home')}">
+                            <img src="${resource(dir: 'images', file: 'logo.png')}" alt="">
                         </a>
                     </div>
                     <!--/.logo-->
@@ -102,7 +98,7 @@
                 <div class="topinfo-block">
                     <form method="POST">
                         <input type="text" class="input-search" name="search" value="" placeholder="search">
-                        <button type='submit' class="submit-search" name='submit'><i class="icon-search"></i>
+                        <button type='submit' class="submit-search" name='submit'><i class="icon-basket"></i>
                         </button>
                     </form>
                     <a href="login.html" class='info login'>
@@ -140,11 +136,11 @@
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav">
-                                <li><a href="#">HOME</a></li>
-                                <li><a href="about.html">ABOUT</a></li>
-                                <li><a href="#">PRODUCT</a></li>
+                                <li><a href="${g.createLink(controller: 'home')}">HOME</a></li>
+                                <li><a href="#">ABOUT</a></li>
+                                <li><a href="${g.createLink(controller: 'product', action: 'detail')}">PRODUCT</a></li>
                                 <li><a href="#">BLOG</a></li>
-                                <li><a href="contact.html">CONTACT</a>
+                                <li><a href="#">CONTACT</a>
                                 </li>
                             </ul>
                         </div>
@@ -167,7 +163,7 @@
                 <div class="wdgt-about">
                     <div class="row">
                         <div class="col-md-3">
-                            <img src="images/logo-black.png" alt="" class="logo-bottom">
+                            <img src="${resource(dir: 'images', file: 'logo-black.png')}" alt="" class="logo-bottom">
                         </div>
                         <div class="col-md-5">
                             <h3 class="wdgt-title">ABOUT US</h3>
@@ -217,6 +213,7 @@
 <!-- JS For Menjual -->
 <script src="${resource(dir: 'js/', file: 'main.js')}"></script>
 <script src="${resource(dir: 'demo-asset/js', file: 'main.js')}"></script>
+<script src="${resource(dir: 'js/lib', file: 'smoothproducts.js')}"></script>
 <r:layoutResources />
 </body>
 
