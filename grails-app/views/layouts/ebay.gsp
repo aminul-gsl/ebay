@@ -137,10 +137,10 @@
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav">
                                 <li><a href="${g.createLink(controller: 'home')}">HOME</a></li>
-                                <li><a href="#">ABOUT</a></li>
+                                <li><a href="${g.createLink(controller: 'about')}">ABOUT</a></li>
                                 <li><a href="${g.createLink(controller: 'product', action: 'detail')}">PRODUCT</a></li>
-                                <li><a href="#">BLOG</a></li>
-                                <li><a href="#">CONTACT</a>
+                                <li><a href="${g.createLink(controller: 'blog')}">BLOG</a></li>
+                                <li><a href="${g.createLink(controller: 'contact')}">CONTACT</a>
                                 </li>
                             </ul>
                         </div>
