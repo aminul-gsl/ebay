@@ -98,14 +98,17 @@
                 <div class="topinfo-block">
                     <form method="POST">
                         <input type="text" class="input-search" name="search" value="" placeholder="search">
-                        <button type='submit' class="submit-search" name='submit'><i class="icon-basket"></i>
+                        <button type='submit' class="submit-search" name='submit'><i class="fa fa-search"></i>
                         </button>
                     </form>
-                    <a href="login.html" class='info login'>
-                        <span class="icon"><i class="icon-lock"></i>
+                    <a href="${g.createLink(controller: 'login')}" class='info login'>
+                        <span class="icon"><i class="fa fa-lock"></i>
                         </span>Login</a>
+                    <a href="${g.createLink(controller: 'register')}" class='info login'>
+                        <span class="icon"><i class="fa fa-sign-in"></i>
+                        </span>Register</a>
                     <a href="cart.html" class='info cart'>
-                        <span class="icon"><i class="icon-basket"></i>
+                        <span class="icon"><i class="fa fa-shopping-cart"></i>
                         </span>Cart
                         <span>0</span>
                     </a>

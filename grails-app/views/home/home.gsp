@@ -143,7 +143,7 @@
             <div class="product-meta">
                 <div class="product-action">
                     <a href="javascript:;" class="addcart">
-                        <i class="icon-basket"></i>
+                        <i class="fa fa-shopping-cart"></i>
                         Add to cart
                     </a>
                     <!--
@@ -194,7 +194,7 @@
             <div class="product-meta">
                 <div class="product-action">
                     <a href="javascript:;" class="addcart">
-                        <i class="icon-basket"></i>
+                        <i class="fa fa-shopping-cart"></i>
                         Add to cart
                     </a>
                     <!--
@@ -242,7 +242,7 @@
             <div class="product-meta">
                 <div class="product-action">
                     <a href="javascript:;" class="addcart">
-                        <i class="icon-basket"></i>
+                        <i class="fa fa-shopping-cart"></i>
                         Add to cart
                     </a>
                     <!--
@@ -290,7 +290,7 @@
             <div class="product-meta">
                 <div class="product-action">
                     <a href="javascript:;" class="addcart">
-                        <i class="icon-basket"></i>
+                        <i class="fa fa-shopping-cart"></i>
                         Add to cart
                     </a>
                     <!--
@@ -341,7 +341,7 @@
             <div class="product-meta">
                 <div class="product-action">
                     <a href="javascript:;" class="addcart">
-                        <i class="icon-basket"></i>
+                        <i class="fa fa-shopping-cart"></i>
                         Add to cart
                     </a>
                     <!--
@@ -393,7 +393,7 @@
             <div class="product-meta">
                 <div class="product-action">
                     <a href="javascript:;" class="addcart">
-                        <i class="icon-basket"></i>
+                        <i class="fa fa-shopping-cart"></i>
                         Add to cart
                     </a>
                     <!--
@@ -445,7 +445,7 @@
             <div class="product-meta">
                 <div class="product-action">
                     <a href="javascript:;" class="addcart">
-                        <i class="icon-basket"></i>
+                        <i class="fa fa-shopping-cart"></i>
                         Add to cart
                     </a>
                     <!--
@@ -497,7 +497,7 @@
             <div class="product-meta">
                 <div class="product-action">
                     <a href="javascript:;" class="addcart">
-                        <i class="icon-basket"></i>
+                        <i class="fa fa-shopping-cart"></i>
                         Add to cart
                     </a>
                     <!--
