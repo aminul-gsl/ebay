@@ -180,7 +180,7 @@
     <div class="col-md-12">
         <div class="product-block">
             <div class="product-image">
-                <a href="javascript:;">
+                <a href="${g.createLink(controller: 'product',action: 'detail',params: [id:2])}">
                     <figure class="product-display">
                         <span class="product-label-special label">
                             <i>Sale</i>
@@ -232,7 +232,7 @@
     <div class="col-md-12">
         <div class="product-block">
             <div class="product-image">
-                <a href="javascript:;">
+                <a href="${g.createLink(controller: 'product',action: 'detail',params: [id:2])}">
                     <figure class="product-display">
                         <img data-src="images/product-3.jpg" alt="" class="lazyOwl product-mainpic" src="images/product-3.jpg">
                         <img src="images/product-3-h.jpg" alt="" class="product-secondpic">
@@ -280,7 +280,7 @@
     <div class="col-md-12">
         <div class="product-block">
             <div class="product-image">
-                <a href="javascript:;">
+                <a href="${g.createLink(controller: 'product',action: 'detail',params: [id:2])}">
                     <figure class="product-display">
                         <img data-src="images/product-4.jpg" alt="" class="lazyOwl product-mainpic" src="images/product-4.jpg">
                         <img src="images/product-4-h.jpg" alt="" class="product-secondpic">

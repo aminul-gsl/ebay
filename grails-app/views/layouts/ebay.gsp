@@ -30,12 +30,7 @@
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'style.css')}" type="text/css">
     <!-- Color Scheme CSS -->
     <link rel="stylesheet" href="${resource(dir: 'css/scheme', file: 'green.css')}" type="text/css">
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="js/html5shiv.js"></script>
-      <script src="js/respond.min.js"></script>
-    <![endif]-->
+    <link rel="stylesheet" href="${resource(dir: 'css', file: 'jquery.steps.css')}" type="text/css">
 
     <g:layoutHead/>
     <g:javascript library="application"/>
@@ -141,7 +136,7 @@
                             <ul class="nav navbar-nav">
                                 <li><a href="${g.createLink(controller: 'home')}">HOME</a></li>
                                 <li><a href="${g.createLink(controller: 'about')}">ABOUT</a></li>
-                                <li><a href="${g.createLink(controller: 'product', action: 'detail')}">PRODUCT</a></li>
+                                <li><a href="${g.createLink(controller: 'addProduct')}">ADD PRODUCT</a></li>
                                 <li><a href="${g.createLink(controller: 'blog')}">BLOG</a></li>
                                 <li><a href="${g.createLink(controller: 'contact')}">CONTACT</a>
                                 </li>
@@ -317,6 +312,8 @@
 <script src="${resource(dir: 'js/', file: 'main.js')}"></script>
 <script src="${resource(dir: 'demo-asset/js', file: 'main.js')}"></script>
 <script src="${resource(dir: 'js/lib', file: 'smoothproducts.js')}"></script>
+
+<script src="${resource(dir: 'js/lib', file: 'jquery.steps.js')}"></script>
 <r:layoutResources />
 </body>
 
