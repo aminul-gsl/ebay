@@ -22,10 +22,13 @@ class User {
 	static constraints = {
 		username blank: false, unique: true
 		password blank: false
+        firstName nullable: true, blank: true
+        lastName nullable: true, blank: true
+        telephone nullable: true, blank: true
 	}
 
 	static mapping = {
-		password column: '`password`'
+		password column: 'password'
 	}
 
 	Set<Role> getAuthorities() {

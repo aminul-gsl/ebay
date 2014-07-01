@@ -21,6 +21,10 @@ grails.project.fork = [
     console: [maxMemory: 768, minMemory: 64, debug: false, maxPerm: 256]
 ]
 
+grails.project.fork=[
+        test: false,run: false
+]
+
 grails.project.dependency.resolver = "maven" // or ivy
 grails.project.dependency.resolution = {
     // inherit Grails' default dependencies
@@ -56,7 +60,7 @@ grails.project.dependency.resolution = {
     plugins {
         // plugins for the build system only
         build ":tomcat:7.0.52.1"
-//        compile ":spring-security-core:2.0-RC2"//today
+        compile ":spring-security-core:2.0-RC2"//today
         // plugins for the compile step
         compile ":scaffolding:2.0.2"
         compile ':cache:1.1.1'

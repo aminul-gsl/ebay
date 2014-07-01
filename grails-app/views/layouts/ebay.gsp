@@ -245,23 +245,23 @@
                 <div class="row">
                     <div class="col-md-5">
                     <div class="box">
-                        <form class="form" role="form">
+                     <g:form  controller="register" action="save" >
                             <div class="form-group">
-                                <label for="inputEmail11" class="control-label">Email</label>
-                                <input type="email" class="form-control" id="inputEmail11" placeholder="Email">
+                                <label for="email" class="control-label">Email</label>
+                                <g:textField  name="email" placeholder="Email" />
                                 <small>May contain letters, digits, dashes and underscores, and should be between 2 and 20 characters long.</small>
                             </div>
                             <div class="form-group">
-                                <label for="inputPassword11" class="control-label">Username</label>
-                                <input type="text" class="form-control" id="inputPassword11" placeholder="Name">
+                                <label for="username" class="control-label">Username</label>
+                                <g:textField   name="username"  placeholder="UserName"/>
                             </div>
                             <div class="form-group">
-                                <label for="inputPassword12" class="control-label">Password</label>
-                                <input type="password" class="form-control" id="inputPassword12" placeholder="Password">
+                                <label for="password" class="control-label">Password</label>
+                                <g:passwordField name="password" placeholder="Password" />
                             </div>
                             <div class="form-group">
-                                <label for="inputPasswords12" class="control-label">Re-type Password</label>
-                                <input type="password" class="form-control" id="inputPasswords12" placeholder="Re-type Password Again">
+                                <label for="rpassword" class="control-label">Re-type Password</label>
+                                <g:passwordField name="rpassword" placeholder="Re-type Password Again" />
                             </div>
                             <div class="form-group">
                                 <div class="checkbox">
@@ -269,9 +269,9 @@
                                         <input type="checkbox">Sign me up for the newsletter (provided by MailChimp)
                                     </label>
                                 </div>
-                                <button type="button" class="btn btn-primary">Sign Up</button>
+                              <g:submitButton name="create" value="Sign Up" />
                             </div>
-                        </form>
+                        </g:form>
                     </div>
                 </div>
                     <div class="col-md-2">
