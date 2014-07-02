@@ -136,7 +136,7 @@
                             <ul class="nav navbar-nav">
                                 <li><a href="${g.createLink(controller: 'home')}">HOME</a></li>
                                 <li><a href="${g.createLink(controller: 'about')}">ABOUT</a></li>
-                                <li><a href="${g.createLink(controller: 'addProduct')}">ADD PRODUCT</a></li>
+                                <li><a href="${g.createLink(controller: 'product', action: 'add')}">ADD PRODUCT</a></li>
                                 <li><a href="${g.createLink(controller: 'blog')}">BLOG</a></li>
                                 <li><a href="${g.createLink(controller: 'contact')}">CONTACT</a>
                                 </li>
