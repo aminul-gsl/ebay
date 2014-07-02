@@ -20,7 +20,7 @@ environments {
             url = "jdbc:mysql://localhost:3306/ebay"
 //            logSql = true
             username = "root"
-            password = "123"
+            password = "root"
         }
     }
     test {
