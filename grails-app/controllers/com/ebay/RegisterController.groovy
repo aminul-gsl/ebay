@@ -4,24 +4,13 @@ import com.ebay.security.User
 import grails.plugin.springsecurity.annotation.Secured
 
 class RegisterController {
-
-
-
-    @Secured('permitAll')
-    def index() {
-        render(view: 'register')
-    }
-
-
-
-
     @Secured('permitAll')
     def save(UserCommand userCommand){
         println(params)
         def user = new User(userCommand.properties)
         user.beforeInsert()
         User savedUser=user.save()
-        redirect(action: 'index')
+        redirect(controller: 'home', action: 'index')
     }
 
 

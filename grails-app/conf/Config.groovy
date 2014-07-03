@@ -122,6 +122,7 @@ log4j = {
 
 
 // Added by the Spring Security Core plugin:
+grails.plugin.springsecurity.logout.postOnly = false
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.ebay.security.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.ebay.security.UserRole'
 grails.plugin.springsecurity.authority.className = 'com.ebay.security.Role'
@@ -131,6 +132,9 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/index.gsp':                     ['permitAll'],
 	'/**/js/**':                      ['permitAll'],
 	'/**/css/**':                     ['permitAll'],
+	'/**/fonts/**':                    ['permitAll'],
+	'/**/font-awesome/**':            ['permitAll'],
+	'/**/demo-asset/**':              ['permitAll'],
 	'/**/images/**':                  ['permitAll'],
 	'/**/favicon.ico':                ['permitAll']
 ]

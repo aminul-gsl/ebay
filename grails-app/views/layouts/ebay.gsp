@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 
 <head>
     <meta charset="utf-8">
@@ -55,6 +55,7 @@
                             </li>
                         </ul>
                     </div>
+
                     <div class="dropdown">
                         <span>Currency:</span>
                         <a data-toggle="dropdown" id="sellcurrency" href="#">Dollar</a>
@@ -96,9 +97,15 @@
                         <button type='submit' class="submit-search" name='submit'><i class="fa fa-search"></i>
                         </button>
                     </form>
-                    <a href="#loginModal" data-toggle="modal">
-                        <span class="icon"><i class="fa fa-lock"></i>
-                        </span>Login</a>
+
+                     <sec:ifLoggedIn> Logged in as <g:loggedInUsername/> (<g:link controller='logout'>Logout</g:link>) </sec:ifLoggedIn>
+                     <sec:ifNotLoggedIn>
+                         <a href="#loginModal" data-toggle="modal">
+                         <span class="icon"><i class="fa fa-lock"></i>
+                         </span>Login</a>
+                     </sec:ifNotLoggedIn>
+
+
                     <a href="#registerModal" data-toggle="modal">
                         <span class="icon"><i class="fa fa-sign-in"></i>
                         </span>Register</a>
@@ -107,6 +114,8 @@
                         </span>Cart
                         <span>0</span>
                     </a>
+
+
                 </div>
             </div>
         </div>
@@ -204,30 +213,25 @@
                 <button class="close" data-dismiss="modal">&times;</button>
                 <h3 class="modal-title">Login</h3>
             </div>
-
             <div class="modal-body">
-                <form class="form" role="form">
-                    <div class="form-group">
-                        <label for="inputName10" class="control-label">Username</label>
-                        <input type="text" class="form-control" id="inputName10" placeholder="Name">
-                    </div>
-                    <div class="form-group">
-                        <label for="inputPassword10" class="control-label">Password</label>
-                        <input type="password" class="form-control" id="inputPassword10" placeholder="Password">
-                    </div>
-                    <div class="form-group">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox">Remember me?
-                            </label>
-                        </div>
-                    </div>
+                <form  method='POST' id='ajaxLoginForm' name='ajaxLoginForm' >
+                    <p>
+                        <label for='username'>UserName</label>
+                        <input type='text' class="form-control" name='j_username' id='username' />
+                    </p>
+                    <p>
+                        <label for='password'>Password</label>
+                        <input class="form-control" type='password' name='j_password' id='password' />
+                    </p>
+                    <p>
+                        <label for='remember_me'>Remember me</label>
+                        <input type='checkbox' id='remember_me' name='_spring_security_remember_me'/>
+                    </p>
+                    <p>
+                        <input type="button" onclick='authAjax(); return false;' value="login" />
+                    </p>
                 </form>
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Login</button>
-                <button type="button" class="btn btn-default">Reset</button>
+                <div id='errorLoginMsg'></div>
             </div>
         </div>
     </div>
@@ -244,52 +248,51 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-5">
-                    <div class="box">
-                     <g:form  controller="register" action="save" >
-                            <div class="form-group">
-                                <label for="email" class="control-label">Email</label>
-                                <g:textField  name="email" placeholder="Email" />
-                                <small>May contain letters, digits, dashes and underscores, and should be between 2 and 20 characters long.</small>
-                            </div>
-                            <div class="form-group">
-                                <label for="username" class="control-label">Username</label>
-                                <g:textField   name="username"  placeholder="UserName"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="password" class="control-label">Password</label>
-                                <g:passwordField name="password" placeholder="Password" />
-                            </div>
-                            <div class="form-group">
-                                <label for="rpassword" class="control-label">Re-type Password</label>
-                                <g:passwordField name="rpassword" placeholder="Re-type Password Again" />
-                            </div>
-                            <div class="form-group">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox">Sign me up for the newsletter (provided by MailChimp)
-                                    </label>
+                        <div class="box">
+                            <g:form  controller="register" action="save" >
+                                <div class="form-group">
+                                    <label for="email" class="control-label">Email</label>
+                                    <g:textField class="form-control" name="email" placeholder="Email" />
                                 </div>
-                              <g:submitButton name="create" value="Sign Up" />
-                            </div>
-                        </g:form>
+                                <div class="form-group">
+                                    <label for="username" class="control-label">Username</label>
+                                    <g:textField class="form-control"  name="username"  placeholder="UserName"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password" class="control-label">Password</label>
+                                    <g:passwordField class="form-control" name="password" placeholder="Password" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="rpassword" class="control-label">Re-type Password</label>
+                                    <g:passwordField class="form-control" name="rpassword" placeholder="Re-type Password Again" />
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" >Accept Terms & Conditions
+                                        </label>
+                                    </div>
+                                    <g:submitButton name="create" value="Sign Up" />
+                                </div>
+                            </g:form>
+                        </div>
                     </div>
-                </div>
                     <div class="col-md-2">
-                    <div class="box">
-                        <h4>or</h4>
+                        <div class="box">
+                            <h4>or</h4>
+                        </div>
                     </div>
-                </div>
                     <div class="col-md-5">
-                    <div class="box">
-                        <form class="form" role="form">
-                            <div class="form-group">
-                                <button class="btn btn-primary" type="button">
-                                    <span class="buttonText">Sign up with Facebook</span>
-                                </button>
-                            </div>
-                        </form>
+                        <div class="box">
+                            <form class="form" role="form">
+                                <div class="form-group">
+                                    <button class="btn btn-primary" type="button">
+                                        <span class="buttonText">Sign up with Facebook</span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                </div>
                 </div>
             </div>
         </div>
@@ -314,7 +317,50 @@
 <script src="${resource(dir: 'js/lib', file: 'smoothproducts.js')}"></script>
 
 <script src="${resource(dir: 'js/lib', file: 'jquery.steps.js')}"></script>
+<r:script>
+    function authAjax()
+    {
+
+        var formdata = $('#ajaxLoginForm').serialize();
+        alert(formdata);
+        var dataUrl = "${postUrl}";
+
+        jQuery.ajax({
+            type : 'POST',
+            url :  dataUrl ,
+            data : formdata,
+            success : function(response,textStatus)
+            {
+                emptyForm();
+                if(response.success)
+                {
+                    var redirectUrl="${ createLink(action:'index' ,controller:'home') }";
+                    window.location.assign(redirectUrl);
+                }
+                else
+                {
+                    $('#errorLoginMsg').html(response.error);
+                }
+            },
+            error : function(
+                    XMLHttpRequest,
+                    textStatus,
+                    errorThrown) {
+            }
+        });
+        alert("function end")
+    }
+
+
+    function emptyForm()
+    {
+        $('#username').val('');
+        $('#password').val('');
+        $('#remember_me').val('');
+    }
+</r:script>
 <r:layoutResources />
+
 </body>
 
 </html>

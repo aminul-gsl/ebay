@@ -688,5 +688,7 @@
     </div>
 </section>
 <!-- END NEWSLETTER & LATEST BLOG -->
+
+
 </body>
 </html>
