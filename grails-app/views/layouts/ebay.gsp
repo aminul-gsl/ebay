@@ -47,25 +47,25 @@
             <div class="col-md-12">
                 <div class="sel-top">
                     <div class="dropdown">
-                        <span>Language:</span>
-                        <a id="sellanguage" data-toggle="dropdown" href="#">English</a>
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="sellanguage">
-                            <li><a href="javascript:;">India</a>
-                            </li>
-                            <li><a href="javascript:;">Korea</a>
-                            </li>
-                        </ul>
+                        <span><sec:ifLoggedIn> Wellcome:  <sec:username/></span>  (<g:link controller='logout'><span>Logout</span></g:link>) </sec:ifLoggedIn>
+
                     </div>
 
                     <div class="dropdown">
-                        <span>Currency:</span>
-                        <a data-toggle="dropdown" id="sellcurrency" href="#">Dollar</a>
-                        <ul class="dropdown-menu right-zero animated " role="menu" aria-labelledby="sellcurrency">
-                            <li><a href="javascript:;">Rupiah</a>
-                            </li>
-                            <li><a href="javascript:;">Yen</a>
-                            </li>
-                        </ul>
+
+                            <sec:ifNotLoggedIn>
+
+                                <a href="#loginModal" data-toggle="modal">
+                                    <span class="icon"><i class="fa fa-lock"></i>
+                                    Login </span></a>
+
+                            <a href="#registerModal" data-toggle="modal">
+                                <span class="icon"><i class="fa fa-sign-in"></i>
+                                Register </span></a>
+
+                        </sec:ifNotLoggedIn>
+
+
                     </div>
                 </div>
             </div>
@@ -99,17 +99,7 @@
                         </button>
                     </form>
 
-                     <sec:ifLoggedIn> Logged in as (<g:link controller='logout'>Logout</g:link>) </sec:ifLoggedIn>
-                     <sec:ifNotLoggedIn>
-                         <a href="#loginModal" data-toggle="modal">
-                         <span class="icon"><i class="fa fa-lock"></i>
-                         </span>Login</a>
-                     </sec:ifNotLoggedIn>
 
-
-                    <a href="#registerModal" data-toggle="modal">
-                        <span class="icon"><i class="fa fa-sign-in"></i>
-                        </span>Register</a>
                     <a href="cart.html" class='info cart'>
                         <span class="icon"><i class="fa fa-shopping-cart"></i>
                         </span>Cart
