@@ -31,6 +31,7 @@
     <!-- Color Scheme CSS -->
     <link rel="stylesheet" href="${resource(dir: 'css/scheme', file: 'green.css')}" type="text/css">
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'jquery.steps.css')}" type="text/css">
+    <script type="text/javascript" src="${resource(dir: 'js', file: 'jquery-1.10.2.min.js')}"></script>
 
     <g:layoutHead/>
     <g:javascript library="application"/>
@@ -98,7 +99,7 @@
                         </button>
                     </form>
 
-                     <sec:ifLoggedIn> Logged in as <g:loggedInUsername/> (<g:link controller='logout'>Logout</g:link>) </sec:ifLoggedIn>
+                     <sec:ifLoggedIn> Logged in as (<g:link controller='logout'>Logout</g:link>) </sec:ifLoggedIn>
                      <sec:ifNotLoggedIn>
                          <a href="#loginModal" data-toggle="modal">
                          <span class="icon"><i class="fa fa-lock"></i>
@@ -214,24 +215,27 @@
                 <h3 class="modal-title">Login</h3>
             </div>
             <div class="modal-body">
-                <form  method='POST' id='ajaxLoginForm' name='ajaxLoginForm' >
-                    <p>
-                        <label for='username'>UserName</label>
-                        <input type='text' class="form-control" name='j_username' id='username' />
-                    </p>
-                    <p>
-                        <label for='password'>Password</label>
-                        <input class="form-control" type='password' name='j_password' id='password' />
-                    </p>
-                    <p>
-                        <label for='remember_me'>Remember me</label>
-                        <input type='checkbox' id='remember_me' name='_spring_security_remember_me'/>
-                    </p>
-                    <p>
-                        <input type="button" onclick='authAjax(); return false;' value="login" />
-                    </p>
-                </form>
-                <div id='errorLoginMsg'></div>
+                <div id='ajaxLogin'>
+                    <form  method='POST' id='ajaxLoginForm' name='ajaxLoginForm' >
+                        <div id="error-message" style="color: red" ></div>
+                        <p>
+                            <label for='username'>UserName</label>
+                            <input type='text' class="form-control" name='j_username' id='username' />
+                        </p>
+                        <p>
+                            <label for='password'>Password</label>
+                            <input type='password' class="form-control" name='j_password' id='password' />
+                        </p>
+                        <p>
+                            <label for='remember_me'>Remember me</label>
+                            <input type='checkbox' id='remember_me' name='_spring_security_remember_me'/>
+                        </p>
+                        <p>
+                            <input type="button" onclick='authAjax(); return false;' value="login" />
+                        </p>
+                    </form>
+                    <div id='errorLoginMsg'></div>
+                </div>
             </div>
         </div>
     </div>
@@ -317,14 +321,12 @@
 <script src="${resource(dir: 'js/lib', file: 'smoothproducts.js')}"></script>
 
 <script src="${resource(dir: 'js/lib', file: 'jquery.steps.js')}"></script>
-<r:script>
+
+<script type='text/javascript'>
     function authAjax()
     {
-
         var formdata = $('#ajaxLoginForm').serialize();
-        alert(formdata);
-        var dataUrl = "${postUrl}";
-
+        var dataUrl = "${request.contextPath}/j_spring_security_check";
         jQuery.ajax({
             type : 'POST',
             url :  dataUrl ,
@@ -332,15 +334,13 @@
             success : function(response,textStatus)
             {
                 emptyForm();
-                if(response.success)
-                {
-                    var redirectUrl="${ createLink(action:'index' ,controller:'home') }";
-                    window.location.assign(redirectUrl);
+                if(response.success){
+                    window.location.href = "${g.createLink(controller: 'home',action: 'index')}";
+                }else{
+                    $("#error-message").html(response.error).show();
+
                 }
-                else
-                {
-                    $('#errorLoginMsg').html(response.error);
-                }
+
             },
             error : function(
                     XMLHttpRequest,
@@ -348,7 +348,7 @@
                     errorThrown) {
             }
         });
-        alert("function end")
+
     }
 
 
@@ -358,7 +358,7 @@
         $('#password').val('');
         $('#remember_me').val('');
     }
-</r:script>
+</script>
 <r:layoutResources />
 
 </body>

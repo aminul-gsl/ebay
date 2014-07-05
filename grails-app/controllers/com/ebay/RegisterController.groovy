@@ -8,7 +8,6 @@ class RegisterController {
     def save(UserCommand userCommand){
         println(params)
         def user = new User(userCommand.properties)
-        user.beforeInsert()
         User savedUser=user.save()
         redirect(controller: 'home', action: 'index')
     }
