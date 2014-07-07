@@ -32,6 +32,57 @@
     <link rel="stylesheet" href="${resource(dir: 'css/scheme', file: 'green.css')}" type="text/css">
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'jquery.steps.css')}" type="text/css">
     <script type="text/javascript" src="${resource(dir: 'js', file: 'jquery-1.10.2.min.js')}"></script>
+    <script type="text/javascript" src="${resource(dir: 'js', file: 'jquery.validate.js')}"></script>
+    <script type="text/javascript">
+        $(function (){
+            $("#signupform").validate({
+                rules: {
+                    email: {
+                        required: true,
+                        email:true
+
+                    },
+                    username:{
+                        required:true
+                    },
+                    password:{
+                        required:true,
+                        minlength:2,
+                        maxlength:10
+
+                    }
+
+
+                },
+                messages: {
+                    email: {
+                        required: "Enter email"
+                    },
+                    username:{
+                        required:"Enter User Name"
+                    },
+                    password:{
+                        required:"Enter Password"
+                    }
+                },
+                submitHandler: function(form) {
+                    $.ajax({
+                        type: 'POST',
+                        url: '${createLink(action:'save', controller: 'register')}',
+                        data: $("#signupform").serialize(),
+                        success: function(result) {
+                            alert(result);
+                        }
+                    });
+                    $( '#signupform' ).each(function(){
+                        this.reset();
+                    });
+                }
+
+            });
+
+        });
+    </script>
 
     <g:layoutHead/>
     <g:javascript library="application"/>
@@ -207,7 +258,7 @@
             <div class="modal-body">
                 <div id='ajaxLogin'>
                     <form  method='POST' id='ajaxLoginForm' name='ajaxLoginForm' >
-                        <div id="error-message" style="color: red" ></div>
+                        <div id="error-message" style="color: #ff0000" ></div>
                         <p>
                             <label for='username'>UserName</label>
                             <input type='text' class="form-control" name='j_username' id='username' />
@@ -243,7 +294,7 @@
                 <div class="row">
                     <div class="col-md-5">
                         <div class="box">
-                            <g:form  controller="register" action="save" >
+                            <g:form  controller="register" action="save" id="signupform" name="signupform" >
                                 <div class="form-group">
                                     <label for="email" class="control-label">Email</label>
                                     <g:textField class="form-control" name="email" placeholder="Email" />
