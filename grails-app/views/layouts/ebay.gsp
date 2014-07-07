@@ -34,7 +34,7 @@
     <script type="text/javascript" src="${resource(dir: 'js', file: 'jquery-1.10.2.min.js')}"></script>
     <script type="text/javascript" src="${resource(dir: 'js', file: 'jquery.validate.js')}"></script>
     <script type="text/javascript">
-        $(function (){
+        $(document).ready(function (){
             $("#signupform").validate({
                 rules: {
                     email: {
@@ -50,7 +50,13 @@
                         minlength:2,
                         maxlength:10
 
+                    },
+                    confirm_password:{
+                        required:true,
+                        minlength:2,
+                        maxlength:10
                     }
+
 
 
                 },
@@ -63,15 +69,26 @@
                     },
                     password:{
                         required:"Enter Password"
+                    },
+                    confirm_password:{
+                        required:"Enter Re-tupe Password"
                     }
                 },
+
                 submitHandler: function(form) {
+
+                    if($('.password').val() != $('.conform_password').val()) {
+                        alert("Password and Confirm Password don't match");
+                        // Prevent form submission
+                        event.preventDefault();
+                    }
+
                     $.ajax({
                         type: 'POST',
                         url: '${createLink(action:'save', controller: 'register')}',
                         data: $("#signupform").serialize(),
                         success: function(result) {
-                            alert(result);
+                            window.location.href = "${g.createLink(controller: 'home',action: 'index')}";
                         }
                     });
                     $( '#signupform' ).each(function(){
@@ -80,6 +97,7 @@
                 }
 
             });
+
 
         });
     </script>
@@ -308,8 +326,8 @@
                                     <g:passwordField class="form-control" name="password" placeholder="Password" />
                                 </div>
                                 <div class="form-group">
-                                    <label for="rpassword" class="control-label">Re-type Password</label>
-                                    <g:passwordField class="form-control" name="rpassword" placeholder="Re-type Password Again" />
+                                    <label for="confirm_password" class="control-label">Re-type Password</label>
+                                    <g:passwordField class="form-control" name="confirm_password" placeholder="Re-type Password Again" />
                                 </div>
                                 <div class="form-group">
                                     <div class="checkbox">
