@@ -33,6 +33,8 @@
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'jquery.steps.css')}" type="text/css">
     <script type="text/javascript" src="${resource(dir: 'js', file: 'jquery-1.10.2.min.js')}"></script>
     <script type="text/javascript" src="${resource(dir: 'js', file: 'jquery.validate.js')}"></script>
+    <script type="text/javascript" src="${resource(dir: 'js', file: 'jquery.steps.js')}"></script>
+
     <script type="text/javascript">
         $(document).ready(function (){
             $("#signupform").validate({
@@ -52,7 +54,8 @@
 
                     },
                     confirm_password:{
-                        required:true,
+
+                        required:true
                         minlength:2,
                         maxlength:10
                     }

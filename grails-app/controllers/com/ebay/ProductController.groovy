@@ -1,6 +1,7 @@
 package com.ebay
 
 import grails.plugin.springsecurity.annotation.Secured
+import org.apache.tomcat.jni.User
 
 @Secured('permitAll')
 class ProductController {
@@ -10,6 +11,10 @@ class ProductController {
         render(view: 'detail')
     }
     def add(){
+        Product product=new Product(params)
         render(view: 'addproduct')
+    }
+    def save(){
+        render(view: 'detail')
     }
 }
