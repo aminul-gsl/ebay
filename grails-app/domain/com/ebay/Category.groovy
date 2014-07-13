@@ -2,12 +2,13 @@ package com.ebay
 
 class Category {
 
-    String name
-    String description
+    String categoryName
+    String categoryDescription
 
 
     static constraints = {
-        description nullable: true
+        categoryName nullable: true
+        categoryDescription nullable: true
     }
 
 

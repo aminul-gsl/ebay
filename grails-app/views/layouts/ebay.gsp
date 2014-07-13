@@ -54,10 +54,7 @@
 
                     },
                     confirm_password:{
-
-                        required:true
-                        minlength:2,
-                        maxlength:10
+                        equalTo:"#password"
                     }
 
 

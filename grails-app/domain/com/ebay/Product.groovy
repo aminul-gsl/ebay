@@ -1,8 +1,8 @@
 package com.ebay
 
 class Product {
-    String name
-    String description
+    String productName
+    String productDescription
 
     static belongsTo = [category:Category]
 

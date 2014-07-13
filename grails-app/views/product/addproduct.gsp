@@ -9,7 +9,7 @@
 <!-- ADD PRODUCT WIZARD BEGIN -->
 
         <section class="panel" >
-            <form class="form-horizontal" id="form" action="add">
+            <g:form class="form-horizontal" id="form"  name="form" controller="product" action="save" method="post">
                 <div id="wizard">
                     <h3>First Step</h3>
                     <section>
@@ -65,16 +65,16 @@
                     <section>
 
                             <div class="form-group">
-                                <label class="col-lg-2 control-label">Bill Name 1</label>
+                                <label class="col-lg-2 control-label">Product Name</label>
                                 <div class="col-lg-8">
-                                    <g:textField name="billName1" class="form-control" placeholder="Bill Name 1"/>
+                                    <g:textField name="productName" class="form-control" placeholder="productName"/>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-lg-2 control-label">Bill Name 2</label>
+                                <label class="col-lg-2 control-label">Product Description</label>
                                 <div class="col-lg-8">
-                                    <g:textField name="billName2" class="form-control" placeholder="Bill Name 2"/>
+                                    <g:textField name="productDescription" class="form-control" placeholder="productDescription"/>
                                 </div>
                             </div>
 
@@ -95,7 +95,7 @@
                             <div class="form-group">
                                 <label class="col-lg-2 control-label">Description</label>
                                 <div class="col-lg-8">
-                                    <g:textArea name="details" id="status" class="form-control" cols="60" rows="5"/>
+                                    <g:textArea name="categoryDescription" id="categoryDescription" class="form-control" cols="60" rows="5"/>
                                 </div>
                             </div>
 
@@ -107,7 +107,7 @@
                         <p>Congratulations This is the Final Step</p>
                     </section>
                 </div>
-            </form>
+            </g:form>
         </section>
 
 
@@ -140,7 +140,8 @@
                     required: true
                 },
                 email: {
-                   required: true
+                   required: true,
+                    email:true
                 },
                 mobile:{
                     required:true
@@ -160,12 +161,37 @@
             },
             onFinishing: function (event, currentIndex)
             {
+                var form = $(this);
                 $("#form").validate().settings.ignore = ":disabled";
                 return $("#form").valid();
             },
             onFinished: function (event, currentIndex)
             {
-                alert("Submitted!");
+
+                /*alert("before Submit!");
+                var form = $(this);
+
+                // Submit form input
+                form.submit();
+                alert("Submitted!");*/
+                 $.ajax({
+                    url:"${createLink(controller: 'product', action: 'save')}",
+                    type:'post',
+                    dataType:'json',
+                    data: $("#form").serialize(),
+                    success:function(data){
+                        if(data.isError==true){
+                            //alert(data.message);
+                        } else{
+                              //alert(data.message);
+                               // $('#successStep').show();
+                        }
+
+
+                    },
+                    failure:function(data){
+                    }
+                })
             }
         });
 
