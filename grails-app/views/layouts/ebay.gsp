@@ -47,14 +47,11 @@
                     username:{
                         required:true
                     },
-                    password:{
-                        required:true,
-                        minlength:2,
-                        maxlength:10
-
+                    r_password:{
+                        required:true
                     },
                     confirm_password:{
-                        equalTo:"#password"
+                        equalTo: "#r_password"
                     }
 
 
@@ -67,7 +64,7 @@
                     username:{
                         required:"Enter User Name"
                     },
-                    password:{
+                    r_password:{
                         required:"Enter Password"
                     },
                     confirm_password:{
@@ -77,11 +74,7 @@
 
                 submitHandler: function(form) {
 
-                    if($('.password').val() != $('.conform_password').val()) {
-                        alert("Password and Confirm Password don't match");
-                        // Prevent form submission
-                        event.preventDefault();
-                    }
+
 
                     $.ajax({
                         type: 'POST',
@@ -323,11 +316,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="password" class="control-label">Password</label>
-                                    <g:passwordField class="form-control" name="password" placeholder="Password" />
+                                    <g:passwordField class="form-control" name="password" id="r_password" placeholder="Password" />
                                 </div>
                                 <div class="form-group">
                                     <label for="confirm_password" class="control-label">Re-type Password</label>
-                                    <g:passwordField class="form-control" name="confirm_password" placeholder="Re-type Password Again" />
+                                    <g:passwordField class="form-control" name="confirm_password" id="confirm_password" placeholder="Re-type Password Again" />
                                 </div>
                                 <div class="form-group">
                                     <div class="checkbox">
