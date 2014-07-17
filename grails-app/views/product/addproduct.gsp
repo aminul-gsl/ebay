@@ -33,6 +33,16 @@
                                 <g:textField name="username" id="username" class="form-control" placeholder="Username"/>
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Category</label>
+                            <div>
+                               <g:select name="category" from="${com.ebay.Category.list()}" optionKey="id"
+                                              optionValue="categoryName"
+                               />
+                            </div>
+                        </div>
+
                     </section>
 
                     <h3>Second Step</h3>
@@ -75,27 +85,6 @@
                                 <label class="col-lg-2 control-label">Product Description</label>
                                 <div class="col-lg-8">
                                     <g:textField name="productDescription" class="form-control" placeholder="productDescription"/>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-lg-2 control-label">Category Id</label>
-                                <div class="col-lg-8">
-                                    <g:textField name="categoryId" id="categoryId" class="form-control" />
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-lg-2 control-label">Category Name</label>
-                                <div class="col-lg-8">
-                                    <g:textField name="categoryName" id="categoryName" class="form-control" />
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-lg-2 control-label">Description</label>
-                                <div class="col-lg-8">
-                                    <g:textArea name="categoryDescription" id="categoryDescription" class="form-control" cols="60" rows="5"/>
                                 </div>
                             </div>
 
@@ -142,6 +131,9 @@
                 email: {
                    required: true,
                     email:true
+                },
+                categoryName:{
+                required:true
                 },
                 mobile:{
                     required:true
